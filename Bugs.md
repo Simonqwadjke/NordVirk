@@ -1,5 +1,6 @@
-# NordVirk Examn project
+# Bug overview
 
-#####Introduction
-This is a code repository for our examn project.
-
+| Bug description | File | Person responsible | status |
+| --------------- | ---- | ------------------ | ------ |
+|  |  |  |  |
+|  |  |  |  |
