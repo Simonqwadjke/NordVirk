@@ -2,8 +2,8 @@ package ModelLayer;
 
 public abstract class Person {
 
-	public String name;
-	public String address;
+	private String name;
+	private String address;
 	
 	public void setName(String name){
 		this.name = name;
