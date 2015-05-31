@@ -6,7 +6,6 @@ public class Supplier {
 	
 	public Contact getContact(){
 		return this.contact;
-		
 	}
 	
 	public void setContact(Contact contact){
