@@ -1,4 +1,4 @@
-package Model;
+package ModelLayer;
 
 public abstract class Person {
 
