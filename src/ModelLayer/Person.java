@@ -13,10 +13,9 @@ public abstract class Person {
 		return this.name;
 	}
 	public String getAddress(){
-		
 		return address;
 	}
-	
+
 	public void setAdress(String address){
 		this.address = address;
 	}
