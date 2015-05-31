@@ -2,14 +2,11 @@ package ModelLayer;
 
 public abstract class Person {
 
-<<<<<<< HEAD
-	public String name;
-	public String address;
-	public String email;
-=======
+
 	private String name;
 	private String address;
->>>>>>> origin/master
+	private String email;
+
 	
 	public void setName(String name){
 		this.name = name;
