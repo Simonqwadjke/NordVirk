@@ -1,5 +1,6 @@
-# NordVirk Examn project
+# Work delegation
 
-#####Introduction
-This is a code repository for our examn project.
-
+| File | Person responsible | status |
+| ---- | ------------------ | ------ |
+|  |  |  |
+|  |  |  |
