@@ -8,18 +8,19 @@ public class Employee extends Person{
 		rights = 0;
 	}
 	
-	public Employee(int rights)
+	public Employee(int ID, String name, String phoneNr, String address, String email, int rights)
 	{
-	this.rights = rights;
+		super(ID, name, phoneNr, address, email);
+		this.rights = rights;
 	}
 	
 	public int getRights()
 	{
 		return rights;
-		}
+	}
 	
 	public void setRights (int rights)
 	{
 		this.rights = rights;
-		}
+	}
 }
