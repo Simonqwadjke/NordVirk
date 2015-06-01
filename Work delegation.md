@@ -3,7 +3,7 @@
 | File | Person responsible | status |
 | ---- | ------------------ | ------ |
 | Person | Simon | Working |
-| Contact | Zohdi | Working |
+| Contact | Zohdi | Done |
 | Emplyee | Anders | Working |
 |  |  |  |
 |  |  |  |
