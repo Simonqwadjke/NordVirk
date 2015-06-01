@@ -12,9 +12,10 @@
 | SupplierSearch | Model | Simon | Done |
 | DBWare | DB | Martin | Done |
 | DBList | DB | Martin | Working |
+| DBperson | DB | Anders | Working |
 | DBsupplier | DB | Anders | Working |
-| Employee | Model | Martin | Working |
-| Contact | Model | Martin | Working |
+| Employee | Model | Martin | Doen |
+| Contact | Model | Martin | Done |
 |  |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
