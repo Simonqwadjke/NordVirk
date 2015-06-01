@@ -2,7 +2,7 @@ package ModelLayer;
 
 public class Contact extends Person{
 	
-	private supplier Supplier;
+	private Supplier supplier;
 	
 	public Contact()
 	{
@@ -14,12 +14,12 @@ public class Contact extends Person{
 		this.supplier =  supplier;
 	}
 	
-	public supplier getSupplier()
+	public Supplier getSupplier()
 	{
 		return supplier;
 	}
 	
-	public void setSupplier(supplier Supplier)
+	public void setSupplier(Supplier supplier)
 	{
 		this.supplier = supplier;
 	}
