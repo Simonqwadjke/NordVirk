@@ -4,7 +4,7 @@
 | ---- | ------------------ | ------ |
 | Person | Simon | Done |
 | Contact | Zohdi | Done |
-| Emplyee | Anders | Working |
+| Emplyee | Anders | Done |
 | Supplier | Simon | Working |
 | Ware | Zohdi | Working |
 |  |  |  |
