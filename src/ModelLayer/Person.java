@@ -8,6 +8,24 @@ public abstract class Person {
 	private String	address;
 	private String	email;
 
+	//////////Constructors\\\\\\\\\\
+
+	protected Person() {
+		ID = 0;
+		name = "";
+		phoneNr = "";
+		address = "";
+		email = "";
+	}
+
+	protected Person(int ID, String name, String phoneNr, String address, String email) {
+		this.ID = ID;
+		this.name = name;
+		this.phoneNr = phoneNr;
+		this.address = address;
+		this.email = email;
+	}
+
 	//////////Set Methods\\\\\\\\\\
 
 	public void setID(int ID) {
