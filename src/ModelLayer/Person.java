@@ -1,37 +1,54 @@
 package ModelLayer;
 
-@SuppressWarnings ("unused")
 public abstract class Person {
 
-	private int ID;
-	private String name;
-	private String address;
-	private String email;
+	private int		ID;
+	private String	name;
+	private String	phoneNr;
+	private String	address;
+	private String	email;
 
-	
-	public void setName(String name){
+	//////////Set Methods\\\\\\\\\\
+
+	public void setID(int ID) {
+		this.ID = ID;
+	}
+
+	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public String getName(){
+
+	public void setPhoneNr(String phoneNr) {
+		this.phoneNr = phoneNr;
+	}
+
+	public void setAdress(String address) {
+		this.address = address;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	//////////Get Methods\\\\\\\\\\
+
+	public int getID() {
+		return this.ID;
+	}
+
+	public String getName() {
 		return this.name;
 	}
-	public String getAddress(){
+
+	public String getPhoneNr() {
+		return this.phoneNr;
+	}
+
+	public String getAddress() {
 		return address;
 	}
 
-	public void setAdress(String address){
-		this.address = address;
+	public String setEmail() {
+		return this.email;
 	}
-	public String getEmail(){
-		
-		return email;
-	}
-	
-	public void setEmail(String email){
-		
-		this.email = email;
-	}
-	
-	
 }
