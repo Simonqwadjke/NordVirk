@@ -5,6 +5,8 @@
 | Person | Simon | Done |
 | Contact | Zohdi | Done |
 | Emplyee | Anders | Done |
-| Supplier | Simon | Working |
+| Supplier | Simon | Done |
 | Ware | Zohdi | Done |
+| ListSearch | Simon | Working |
+| SupplierSearch | Simon | Working |
 |  |  |  |
