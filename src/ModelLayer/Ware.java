@@ -10,6 +10,13 @@ public class Ware {
 	
 	public Ware(){
 		
+		ID = 0;
+		name = "";
+		status = "";
+		signature = "";
+		serialNumber = "";
+		
+		
 	}
 	
 	public Ware(int ID, String name, String status, String signature, String serialNumber){
@@ -24,37 +31,41 @@ public class Ware {
 		return ID;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
-	}
-
 	public String getName() {
 		return name;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+	
+	public String getSignature() {
+		return signature;
+	}
+	
+	public String getSerialNumber() {
+		return serialNumber;
+	}
+	
+	public void setID(int ID){
+		
+		this.ID = ID;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getStatus() {
-		return status;
-	}
 
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
-	public String getSignature() {
-		return signature;
-	}
+	
 
 	public void setSignature(String signature) {
 		this.signature = signature;
 	}
 
-	public String getSerialNumber() {
-		return serialNumber;
-	}
 
 	public void setSerialNumber(String serialNumber) {
 		this.serialNumber = serialNumber;
