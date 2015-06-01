@@ -1,8 +1,9 @@
 package ModelLayer;
 
+@SuppressWarnings ("unused")
 public abstract class Person {
 
-
+	private int ID;
 	private String name;
 	private String address;
 	private String email;
