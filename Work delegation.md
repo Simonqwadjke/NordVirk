@@ -11,5 +11,11 @@
 | ListSearch | Model | Anders | Done |
 | SupplierSearch | Model | Simon | Done |
 | DBWare | DB | Martin | Done |
-| DBList | DB | Martin | working |
+| DBList | DB | Martin | Working |
+| DBsupplier | DB | Anders | Working |
+| Employee | Model | Martin | Working |
+| Contact | Model | Martin | Working |
+|  |  |  |  |
+|  |  |  |  |
+|  |  |  |  |
 |  |  |  |  |
