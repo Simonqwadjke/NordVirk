@@ -4,23 +4,20 @@ public class Contact extends Person{
 	
 	private Supplier supplier;
 	
-	public Contact()
-	{
+	public Contact(){
 		supplier = null;
 	}
 	
-	public Contact(Supplier supplier)
-	{
+	public Contact(int ID, String name, String phoneNr, String address, String email, Supplier supplier){
+		super(ID, name, phoneNr, address, email);
 		this.supplier =  supplier;
 	}
 	
-	public Supplier getSupplier()
-	{
+	public Supplier getSupplier(){
 		return supplier;
 	}
 	
-	public void setSupplier(Supplier supplier)
-	{
+	public void setSupplier(Supplier supplier){
 		this.supplier = supplier;
 	}
 
