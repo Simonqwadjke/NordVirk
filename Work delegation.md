@@ -1,15 +1,15 @@
 # Work delegation
 
-| File | Person responsible | status |
-| ---- | ------------------ | ------ |
-| Person | Simon | Done |
-| Contact | Zohdi | Done |
-| Emplyee | Anders | Done |
-| Supplier | Simon | Done |
-| Ware | Zohdi | Done |
-| List | Anders | Done |
-| ListSearch | Anders | Done |
-| SupplierSearch | Simon | Done |
-| DBWare | Martin | working |
-|  |  |  |
-|  |  |  |
+| File | Package |  Person responsible | status |
+| ---- | ------- | ------------------ | ------ |
+| Person | Model | Simon | Done |
+| Contact | Model | Zohdi | Done |
+| Emplyee | Model | Anders | Done |
+| Supplier | Model | Simon | Done |
+| Ware | Model| Zohdi | Done |
+| List | Model | Anders | Done |
+| ListSearch | Model | Anders | Done |
+| SupplierSearch | Model | Simon | Done |
+| DBWare | DB | Martin | working |
+|  |  |  |  |
+|  |  |  |  |
