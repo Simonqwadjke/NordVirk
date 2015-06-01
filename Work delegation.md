@@ -7,6 +7,6 @@
 | Emplyee | Anders | Done |
 | Supplier | Simon | Done |
 | Ware | Zohdi | Done |
-| ListSearch | Simon | Working |
+| ListSearch | Anders | Working |
 | SupplierSearch | Simon | Working |
 |  |  |  |
