@@ -2,7 +2,6 @@ package DBLayer;
 
 import java.sql.*;
 import java.util.ArrayList;
-
 import ModelLayer.*;
 
 public class DBWare{
