@@ -1,18 +1,32 @@
 package ModelLayer;
 
+import java.util.ArrayList;
+
 public class Supplier {
 
-	private Contact contact;
+	private int ID;
+	private String name;
+	private String address;
 	private String phoneNr;
+	private ArrayList<Contact> contacts;
+	public SupplierSearch search;
 	
-	public Contact getContact(){
-		return this.contact;
+	//////////Constructor\\\\\\\\\\
+	public Supplier(){
+		ID = 0;
+		name = "";
+		address = "";
+		phoneNr = "";
+		search = new SupplierSearch();
 	}
 	
+	public Supplier(int ID, String name, String address, String phoneNr){
+		
+	}
+	//////////Get methods\\\\\\\\\\
+	
+	//////////Set methods\\\\\\\\\\
 	public String getPhoneNr(){
 		return this.phoneNr;
-	}
-	public void setContact(Contact contact){
-		this.contact = contact;
 	}
 }
