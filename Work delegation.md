@@ -10,6 +10,6 @@
 | List | Model | Anders | Done |
 | ListSearch | Model | Anders | Done |
 | SupplierSearch | Model | Simon | Done |
-| DBWare | DB | Martin | working |
-|  |  |  |  |
+| DBWare | DB | Martin | Done |
+| DBList | DB | Martin | working |
 |  |  |  |  |
