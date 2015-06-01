@@ -6,5 +6,5 @@
 | Contact | Zohdi | Done |
 | Emplyee | Anders | Done |
 | Supplier | Simon | Working |
-| Ware | Zohdi | Working |
+| Ware | Zohdi | Done |
 |  |  |  |
