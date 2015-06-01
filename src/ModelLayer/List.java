@@ -25,5 +25,69 @@ public class List {
 		this.supplier = supplier;
 		this.acquasitionType = acquasitionType;
 	}
+	
+	public int getID()
+	{
+		return ID;
+	}
 
+	public String getName()
+	{
+		return name;
+	}
+	
+	public Employee getCreator()
+	{
+		return creator;
+	}
+	
+	public Supplier getSupplier()
+	{
+		return supplier;
+	}
+	
+	public String getAcquasitionType()
+	{
+		return acquasitionType;
+	}
+	
+	public void setID (int ID)
+	{
+		this.ID = ID;
+	}
+	
+	public void setName (String name)
+	{
+		this.name = name;
+	}
+	
+	public void setWare (int indx, Ware ware)
+	{
+		wares.set(indx, ware);
+	}
+	
+	public void addWare (Ware ware)
+	{
+		wares.add(ware);
+	}
+	
+	public void deleteWare (int indx)
+	{
+		wares.remove(indx);
+	}
+	
+	public void setCreator (Employee creator)
+	{
+		this.creator = creator;
+	}
+	
+	public void setSupplier (Supplier supplier)
+	{
+		this.supplier = supplier;
+	}
+	
+	public void setAcquasitionType (String acquasitionType)
+	{
+		this.acquasitionType = acquasitionType;
+	}
 }
