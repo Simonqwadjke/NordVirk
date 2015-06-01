@@ -7,8 +7,9 @@
 | Emplyee | Anders | Done |
 | Supplier | Simon | Done |
 | Ware | Zohdi | Done |
-| ListSearch | Anders | Working |
-| SupplierSearch | Simon | Working |
+| List | Anders | Done |
+| ListSearch | Anders | Done |
+| SupplierSearch | Simon | Done |
 | DBWare | Martin | working |
 |  |  |  |
 |  |  |  |
