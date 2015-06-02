@@ -14,7 +14,7 @@ public class ListSearch {
 	 * Search the Wares of this supplier by Name. Returns null if no match is
 	 * found.
 	 */
-	Ware byID(int ID) {
+	public Ware byID(int ID) {
 		int indx = 0;
 		boolean running = true;
 		Ware Ware = null;

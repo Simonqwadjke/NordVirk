@@ -25,6 +25,14 @@ public class List {
 		this.acquasitionType = acquasitionType;
 	}
 	
+	public Ware getWare(int index){
+		Ware ware = null;
+		if(index < wares.size()){
+			ware = wares.get(index);
+		}
+		return ware;
+	}
+	
 	public int getID()
 	{
 		return ID;
