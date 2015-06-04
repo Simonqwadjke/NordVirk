@@ -13,7 +13,7 @@ public class SupplierSearch {
 	 * Search the contacts of this supplier by ID. 
 	 * Returns null if no match is found.
 	 */
-	Contact byID(int ID) {
+	public Contact byID(int ID) {
 		int indx = 0;
 		boolean running = true;
 		Contact contact = null;
@@ -30,7 +30,7 @@ public class SupplierSearch {
 	 * Search the contacts of this supplier by Name. 
 	 * Returns null if no match is found.
 	 */
-	Contact byName(String name) {
+	public Contact byName(String name) {
 		int indx = 0;
 		boolean running = true;
 		Contact contact = null;
@@ -47,7 +47,7 @@ public class SupplierSearch {
 	 * Search the contacts of this supplier by Phone Number. 
 	 * Returns null if no match is found.
 	 */
-	Contact byProneNr(String phoneNr) {
+	public Contact byProneNr(String phoneNr) {
 		int indx = 0;
 		boolean running = true;
 		Contact contact = null;
@@ -64,7 +64,7 @@ public class SupplierSearch {
 	 * Search the contacts of this supplier by Email. 
 	 * Returns null if no match is found.
 	 */
-	Contact byEmail(String email) {
+	public Contact byEmail(String email) {
 		int indx = 0;
 		boolean running = true;
 		Contact contact = null;
@@ -81,7 +81,7 @@ public class SupplierSearch {
 	 * Search the contacts of this supplier by Address. 
 	 * Returns null if no match is found.
 	 */
-	Contact byAddress(String address) {
+	public Contact byAddress(String address) {
 		int indx = 0;
 		boolean running = true;
 		Contact contact = null;
