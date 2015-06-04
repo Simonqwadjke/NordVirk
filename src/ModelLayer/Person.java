@@ -51,22 +51,22 @@ public abstract class Person {
 	//////////Get Methods\\\\\\\\\\
 
 	public int getID() {
-		return this.ID;
+		return ID;
 	}
 
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	public String getPhoneNr() {
-		return this.phoneNr;
+		return phoneNr;
 	}
 
 	public String getAddress() {
 		return address;
 	}
 
-	public String setEmail() {
-		return this.email;
+	public String getEmail() {
+		return email;
 	}
 }
