@@ -23,11 +23,12 @@ public class ListSearch {
 			if (Ware.getID() == ID) {
 				running = false;
 			}
+			indx++;
 		}
 		return Ware;
 	}
 	
-	Ware byStatus(String status) {
+	public Ware byStatus(String status) {
 		int indx = 0;
 		boolean running = true;
 		Ware Ware = null;
@@ -36,11 +37,12 @@ public class ListSearch {
 			if (Ware.getStatus().equals(status)) {
 				running = false;
 			}
+			indx++;
 		}
 		return Ware;
 	}
 	
-	Ware bySignature(String signature) {
+	public Ware bySignature(String signature) {
 		int indx = 0;
 		boolean running = true;
 		Ware Ware = null;
@@ -49,11 +51,12 @@ public class ListSearch {
 			if (Ware.getSignature().equals(signature)) {
 				running = false;
 			}
+			indx++;
 		}
 		return Ware;
 	}
 	
-	Ware bySerialNumber(String serialNumber) {
+	public Ware bySerialNumber(String serialNumber) {
 		int indx = 0;
 		boolean running = true;
 		Ware Ware = null;
@@ -62,6 +65,7 @@ public class ListSearch {
 			if (Ware.getSerialNumber().equals(serialNumber)) {
 				running = false;
 			}
+			indx++;
 		}
 		return Ware;
 	}

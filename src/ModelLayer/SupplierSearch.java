@@ -22,6 +22,7 @@ public class SupplierSearch {
 			if (contact.getID() == ID) {
 				running = false;
 			}
+			indx++;
 		}
 		return contact;
 	}
@@ -39,6 +40,7 @@ public class SupplierSearch {
 			if (contact.getName().equals(name)) {
 				running = false;
 			}
+			indx++;
 		}
 		return contact;
 	}
@@ -56,6 +58,7 @@ public class SupplierSearch {
 			if (contact.getName().equals(phoneNr)) {
 				running = false;
 			}
+			indx++;
 		}
 		return contact;
 	}
@@ -73,6 +76,7 @@ public class SupplierSearch {
 			if (contact.getName().equals(email)) {
 				running = false;
 			}
+			indx++;
 		}
 		return contact;
 	}
@@ -90,6 +94,7 @@ public class SupplierSearch {
 			if (contact.getName().equals(address)) {
 				running = false;
 			}
+			indx++;
 		}
 		return contact;
 	}
