@@ -7,19 +7,19 @@ import ModelLayer.*;
 
 public interface DBPerson {
 	
-	public ArrayList<Person> findPersonByName (String name);
+	public ArrayList<Person> findByName (String name);
 	
-	public ArrayList<Person> findPersonByPhoneNumber (String phoneNumber);
+	public ArrayList<Person> findByPhoneNumber (String phoneNumber);
 	
-	public ArrayList<Person> findPersonByEmail (String email);
+	public ArrayList<Person> findByEmail (String email);
 	
-	public ArrayList<Person> findPersonByAddress (String address);
+	public ArrayList<Person> findByAddress (String address);
 	
-	public void insertPerson (String Person);
+	public void insert(String Person);
 	
-	public void updatePerson (String Person);
+	public void update(String Person);
 	
-	public void deletePerson (int ID);
+	public void delete(int ID);
 	
 	public ArrayList<Person> search (String wClause);
 	
