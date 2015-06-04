@@ -36,7 +36,7 @@ public class DBList {
 		int listID = 0, i = 0;
 		String query = "INSERT INTO List(name,creator,supplierID,acquasitionType) "
 				+ "VALUES('" + list.getName() + "','"
-				+ list.getCreator() + "','"
+				+ list.getCreator().getID() + "','"
 				+ list.getSupplier().getID() + "','"
 				+ list.getAcquasitionType() + "')";
 		
@@ -44,6 +44,7 @@ public class DBList {
 		stmt.setQueryTimeout(5);
 		stmt.executeQuery(query);
 		listID = stmt.executeQuery("SELECT listID FROM List WHERE name = " + list.getName()).getInt(1);
+		stmt.close();
 		while(list.getWare(i) != null){
 			DBware.insert(list.search.byID(i),listID);
 			i++;
@@ -51,11 +52,36 @@ public class DBList {
 	}
 	
 	public void update(List list) throws SQLException{
+		DBWare DBware = new DBWare();
+		int i = 0;
+		String query = "UPDATE List SET "
+				+ "name = " + list.getName()
+				+ "creator = " + list.getCreator().getID()
+				+ "supplierID = " + list.getSupplier().getID()
+				+ "acquasitionType = " + list.getAcquasitionType()
+				+ "WHERE listID = " + list.getID();
 		
+		Statement stmt = con.createStatement();
+		stmt.setQueryTimeout(5);
+		stmt.executeQuery(query);
+		stmt.close();
+		while(list.search.byID(i) != null){
+			DBware.update(list.search.byID(i));
+		}
 	}
 	
 	public void delete(List list) throws SQLException{
+		DBWare DBware = new DBWare();
+		int i = 0;
+		String query = "DELETE FROM List WHERE listID = " + list.getID();
 		
+		Statement stmt = con.createStatement();
+		stmt.setQueryTimeout(5);
+		stmt.executeQuery(query);
+		stmt.close();
+		while(list.search.byID(i) != null){
+			DBware.delete(list.search.byID(i));
+		}
 	}
 	
 	private ArrayList<List> search(String wClause) throws SQLException{
@@ -83,7 +109,7 @@ public class DBList {
 		
 		list.setID(results.getInt("listID"));
 		list.setName(results.getString("name"));
-		list.setSupplier(new Supplier(results.getInt("supplier"), null, null, null));
+		list.setSupplier(new Supplier(results.getInt("supplierID"), null, null, null));
 		list.setCreator(new Employee(results.getInt("creator"), null, null, null, null, 0));
 		list.setAcquasitionType(results.getString("acquasitionType"));
 		
