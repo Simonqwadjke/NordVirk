@@ -13,29 +13,29 @@ public class DBWare{
 	}
 	
 	public ArrayList<Ware> findByList(List list) throws SQLException{
-		String wClause = "listID = " + list.getID();
+		String wClause = " listID = " + list.getID();
 		return search(wClause);
 	}
 	
 	public ArrayList<Ware> findBySerial(String serialNumber) throws SQLException{
-		String wClause = "serialNumber = " + serialNumber;
+		String wClause = " serialNumber = " + serialNumber;
 		return search(wClause);
 	}
 	
 	public ArrayList<Ware> findBySignature(String signature) throws SQLException{
-		String wClause = "signature = " + signature;
+		String wClause = " signature = " + signature;
 		return search(wClause);
 	}
 	
 	public ArrayList<Ware> findByStatus(String status) throws SQLException{
-		String wClause = "status = " + status;
+		String wClause = " status = " + status;
 		return search(wClause);
 	}
 	
 	public void insert(Ware ware, int listID) throws SQLException{
 		
-		String query = "INSERT INTO Ware(listID,name,status,signature,serialNUmber) "
-				+ "VALUES('" 
+		String query = " INSERT INTO Ware(listID,name,status,signature,serialNUmber)"
+				+ " VALUES('" 
 				+ listID + "','"
 				+ ware.getName() + "','"
 				+ ware.getStatus() + "','"
@@ -50,12 +50,12 @@ public class DBWare{
 	
 	public void update(Ware ware)throws SQLException{
 		
-		String query = "UPDATE Ware SET "
-				+ "name = '" + ware.getName() + "', "
-				+ "status = '" + ware.getStatus() + "', "
-				+ "signature = '" + ware.getSignature() + "', "
-				+ "serialNumber = '" + ware.getSerialNumber() + "' "
-				+ "WHERE wareID = " + ware.getID();
+		String query = " UPDATE Ware SET"
+				+ " name = '" + ware.getName() + "',"
+				+ " status = '" + ware.getStatus() + "',"
+				+ " signature = '" + ware.getSignature() + "',"
+				+ " serialNumber = '" + ware.getSerialNumber() + "'"
+				+ " WHERE wareID = " + ware.getID();
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
@@ -65,7 +65,7 @@ public class DBWare{
 	
 	public void delete(Ware ware)throws SQLException{
 
-		String query = "DELETE FROM Ware WHERE wareID = " + ware.getID();
+		String query = " DELETE FROM Ware WHERE wareID = " + ware.getID();
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
@@ -107,7 +107,7 @@ public class DBWare{
 	private String buildQuery(String wClause){
 		String query = "Select wareID, listID, name, status, signature, serialNumber FROM Ware";
 		if(wClause.length() > 0){
-			query = query + " WHERE " + wClause;
+			query = query + " WHERE" + wClause;
 		}
 		return query;
 	}
