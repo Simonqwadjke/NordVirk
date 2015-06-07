@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ListSearch {
 
-	ArrayList<Ware> wares;
+	ArrayList<Ware>	wares;
 
 	ListSearch(ArrayList<Ware> wares) {
 		this.wares = wares;
@@ -27,7 +27,7 @@ public class ListSearch {
 		}
 		return Ware;
 	}
-	
+
 	public Ware byStatus(String status) {
 		int indx = 0;
 		boolean running = true;
@@ -41,7 +41,7 @@ public class ListSearch {
 		}
 		return Ware;
 	}
-	
+
 	public Ware bySignature(String signature) {
 		int indx = 0;
 		boolean running = true;
@@ -55,7 +55,7 @@ public class ListSearch {
 		}
 		return Ware;
 	}
-	
+
 	public Ware bySerialNumber(String serialNumber) {
 		int indx = 0;
 		boolean running = true;
