@@ -17,12 +17,17 @@ public class SupplierSearch {
 		int indx = 0;
 		boolean running = true;
 		Contact contact = null;
-		while (indx <= contacts.size() && running) {
-			contact = contacts.get(indx);
-			if (contact.getID() == ID) {
-				running = false;
+		try {
+			while (indx <= contacts.size() && running) {
+				contact = contacts.get(indx);
+				if (contact.getID() == ID) {
+					running = false;
+				}
+				indx++;
 			}
-			indx++;
+		}
+		catch (IndexOutOfBoundsException e) {
+			contact = null;
 		}
 		return contact;
 	}
@@ -35,12 +40,17 @@ public class SupplierSearch {
 		int indx = 0;
 		boolean running = true;
 		Contact contact = null;
-		while (indx <= contacts.size() && running) {
-			contact = contacts.get(indx);
-			if (contact.getName().equals(name)) {
-				running = false;
+		try {
+			while (indx <= contacts.size() && running) {
+				contact = contacts.get(indx);
+				if (contact.getName().equals(name)) {
+					running = false;
+				}
+				indx++;
 			}
-			indx++;
+		}
+		catch (IndexOutOfBoundsException e) {
+			contact = null;
 		}
 		return contact;
 	}
@@ -53,12 +63,17 @@ public class SupplierSearch {
 		int indx = 0;
 		boolean running = true;
 		Contact contact = null;
-		while (indx <= contacts.size() && running) {
-			contact = contacts.get(indx);
-			if (contact.getName().equals(phoneNr)) {
-				running = false;
+		try {
+			while (indx <= contacts.size() && running) {
+				contact = contacts.get(indx);
+				if (contact.getName().equals(phoneNr)) {
+					running = false;
+				}
+				indx++;
 			}
-			indx++;
+		}
+		catch (IndexOutOfBoundsException e) {
+			contact = null;
 		}
 		return contact;
 	}
@@ -71,12 +86,17 @@ public class SupplierSearch {
 		int indx = 0;
 		boolean running = true;
 		Contact contact = null;
-		while (indx <= contacts.size() && running) {
-			contact = contacts.get(indx);
-			if (contact.getName().equals(email)) {
-				running = false;
+		try {
+			while (indx <= contacts.size() && running) {
+				contact = contacts.get(indx);
+				if (contact.getName().equals(email)) {
+					running = false;
+				}
+				indx++;
 			}
-			indx++;
+		}
+		catch (IndexOutOfBoundsException e) {
+			contact = null;
 		}
 		return contact;
 	}
@@ -89,12 +109,17 @@ public class SupplierSearch {
 		int indx = 0;
 		boolean running = true;
 		Contact contact = null;
-		while (indx <= contacts.size() && running) {
-			contact = contacts.get(indx);
-			if (contact.getName().equals(address)) {
-				running = false;
+		try {
+			while (indx <= contacts.size() && running) {
+				contact = contacts.get(indx);
+				if (contact.getName().equals(address)) {
+					running = false;
+				}
+				indx++;
 			}
-			indx++;
+		}
+		catch (IndexOutOfBoundsException e) {
+			contact = null;
 		}
 		return contact;
 	}
