@@ -55,8 +55,8 @@ public class DBEmployee{
 				+ stmt.executeQuery("SELECT personID FROM Person"
 						+ " WHERE "
 						+ " name = " + employee.getName()
-						+ " phoneNumber = " + employee.getPhoneNr()
-						+ " subtype = Employee").getInt(1) 
+						+ " AND phoneNumber = " + employee.getPhoneNr()
+						+ " AND subtype = Employee").getInt(1) 
 				+ "','"	+ employee.getRights() + "')";
 		stmt.executeQuery(query);
 		stmt.close();
