@@ -14,22 +14,22 @@ public class DBEmployee{
 	}
 
 	public ArrayList<Employee> findByName(String name)  throws SQLException{
-		String wClause = " name = " + name;
+		String wClause = " name = '" + name + "'";
 		return search(wClause);
 	}
 
 	public ArrayList<Employee> findByPhoneNumber(String phoneNumber)  throws SQLException{
-		String wClause = " phoneNumber = " + phoneNumber;
+		String wClause = " phoneNumber = '" + phoneNumber + "'";
 		return search(wClause);
 	}
 
 	public ArrayList<Employee> findByEmail(String email)  throws SQLException{
-		String wClause = " email = " + email;
+		String wClause = " email = '" + email + "'";
 		return search(wClause);
 	}
 
 	public ArrayList<Employee> findByAddress(String address)  throws SQLException{
-		String wClause = " address = " + address;
+		String wClause = " address = '" + address + "'";
 		return search(wClause);
 	}
 	

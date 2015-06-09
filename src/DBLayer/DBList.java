@@ -13,17 +13,17 @@ public class DBList {
 	}
 	
 	public ArrayList<List> findByName(String name) throws SQLException{
-		String wClause = "name = " + name;
+		String wClause = "name = '" + name + "'";
 		return search(wClause);
 	}
 	
 	public ArrayList<List> findByCreator(Employee creator) throws SQLException{
-		String wClause = "creator = " + creator.getID();
+		String wClause = "creator = '" + creator.getID() + "'";
 		return search(wClause);
 	}
 	
 	public ArrayList<List> findBySupplier(Supplier supplier) throws SQLException{
-		String wClause = "supplier = " + supplier.getID();
+		String wClause = "supplier = '" + supplier.getID() + "'";
 		return search(wClause);
 	}
 	
@@ -55,11 +55,11 @@ public class DBList {
 		DBWare DBware = new DBWare();
 		int i = 0;
 		String query = "UPDATE List SET "
-				+ "name = " + list.getName()
-				+ "creator = " + list.getCreator().getID()
-				+ "supplierID = " + list.getSupplier().getID()
-				+ "acquasitionType = " + list.getAcquasitionType()
-				+ "WHERE listID = " + list.getID();
+				+ "name = '" + list.getName() + "'"
+				+ "creator = '" + list.getCreator().getID() + "'"
+				+ "supplierID = '" + list.getSupplier().getID() + "'"
+				+ "acquasitionType = '" + list.getAcquasitionType() + "'"
+				+ "WHERE listID = '" + list.getID() + "'";
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
