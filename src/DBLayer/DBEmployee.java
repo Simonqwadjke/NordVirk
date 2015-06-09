@@ -39,36 +39,40 @@ public class DBEmployee{
 	}
 
 	public void insert(Employee employee) throws SQLException{
-		String query = " INSERT INTo Person(name,phoneNumber,email,address,subtype)"
+		String query = " INSERT INTO Person(name,phoneNumber,email,address,subtype)"
 				+ " VALUES('" 
 				+ employee.getName() + "','"
 				+ employee.getPhoneNr() + "','"
 				+ employee.getEmail() + "','"
 				+ employee.getAddress() + "','"
 				+ "Employee')";
+		String getID = " SELECT personID FROM Person WHERE"
+				+ " name = '" + employee.getName() + "'"
+				+ " AND phoneNumber = '" + employee.getPhoneNr() + "'"
+				+ " AND subtype = 'Employee'";
+		
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
-		stmt.executeQuery(query);
+		System.out.println(query);
+		stmt.executeUpdate(query);
+		ResultSet idRow = stmt.executeQuery(getID);
+		idRow.next();
 		query = " INSERT INTO Employee(personID,rights)"
-				+ " VALUES('"
-				+ stmt.executeQuery("SELECT personID FROM Person"
-						+ " WHERE "
-						+ " name = " + employee.getName()
-						+ " AND phoneNumber = " + employee.getPhoneNr()
-						+ " AND subtype = Employee").getInt(1) 
+				+ " VALUES('" + idRow.getInt(1)
 				+ "','"	+ employee.getRights() + "')";
-		stmt.executeQuery(query);
+		System.out.println(query);
+		stmt.executeUpdate(query);
 		stmt.close();
 	}
 
 	public void update(Employee employee) throws SQLException{
 		String query = " UPDATE Person SET"
-				+ " name = " + employee.getName()
-				+ " phoneNumber = " + employee.getPhoneNr()
-				+ " email = " + employee.getEmail()
-				+ " address = " + employee.getAddress()
-				+ " subtype = employee"
+				+ " name = '" + employee.getName() + "'"
+				+ " phoneNumber = '" + employee.getPhoneNr() + "'"
+				+ " email = '" + employee.getEmail() + "'"
+				+ " address = '" + employee.getAddress() + "'"
+				+ " subtype = 'Employee'"
 				+ " WHERE personID = " + employee.getID()
 				+ " UPDATE Employee SET"
 				+ " rights = " + employee.getRights()
@@ -76,7 +80,8 @@ public class DBEmployee{
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
-		stmt.executeQuery(query);
+		System.out.println(query);
+		stmt.executeUpdate(query);
 		stmt.close();
 	}
 
@@ -86,7 +91,8 @@ public class DBEmployee{
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
-		stmt.executeQuery(query);
+		System.out.println(query);
+		stmt.executeUpdate(query);
 		stmt.close();
 	}
 
@@ -98,6 +104,7 @@ public class DBEmployee{
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
+		System.out.println(query);
 		results = stmt.executeQuery(query);
 		while(results.next()){
 			Employee emp;

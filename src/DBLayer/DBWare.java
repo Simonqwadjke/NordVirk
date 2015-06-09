@@ -44,7 +44,7 @@ public class DBWare{
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
-		stmt.executeQuery(query);
+		stmt.executeUpdate(query);
 		stmt.close();
 	}
 	
@@ -59,7 +59,7 @@ public class DBWare{
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
-		stmt.executeQuery(query);
+		stmt.executeUpdate(query);
 		stmt.close();
 	}
 	
@@ -69,7 +69,7 @@ public class DBWare{
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
-		stmt.executeQuery(query);
+		stmt.executeUpdate(query);
 		stmt.close();
 	}
 	
