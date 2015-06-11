@@ -16,7 +16,7 @@
 | DBsupplier | DB | Anders | Working |
 | Employee | Model | Martin | Doen |
 | Contact | Model | Martin | Done |
-| DBEmployee | DB | Martin | Working |
-|  |  |  |  |
+| DBEmployee | DB | Martin | Done |
+| DBContact | DB | Martin | Working |
 |  |  |  |  |
 |  |  |  |  |
