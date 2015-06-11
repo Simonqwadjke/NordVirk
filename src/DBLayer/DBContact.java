@@ -72,9 +72,9 @@ public class DBContact {
 	public void update(Contact contact) throws SQLException {
 		String query = " UPDATE Person SET"
 				+ " name = '" + contact.getName() + "',"
-				+ " phoneNumber = '" + contact.getPhoneNr() + "'"
-				+ " email = '" + contact.getEmail() + "'"
-				+ " address = '" + contact.getAddress() + "'"
+				+ " phoneNumber = '" + contact.getPhoneNr() + "',"
+				+ " email = '" + contact.getEmail() + "',"
+				+ " address = '" + contact.getAddress() + "',"
 				+ " subtype = 'Contact'"
 				+ " WHERE personID = " + contact.getID()
 				+ " UPDATE SupplierContacts SET"
@@ -100,27 +100,49 @@ public class DBContact {
 		System.out.println(getID);
 		ResultSet idRow = stmt.executeQuery(getID);
 		idRow.next();
-		System.out.println(query);
-		stmt.executeUpdate(query);
-		query = " DELETE FROM SupplierContacts WHERE contactID = " + idRow.getInt(1);
+		String supplierQuery = " DELETE FROM SupplierContacts WHERE contactID = " + idRow.getInt(1);
+		System.out.println(supplierQuery);
+		stmt.executeUpdate(supplierQuery);
 		System.out.println(query);
 		stmt.executeUpdate(query);
 		stmt.close();
 
 	}
 
-	public ArrayList<Contact> search(String wClause) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	private ArrayList<Contact> search(String wClause) throws SQLException {
+		ResultSet results;
+		ArrayList<Contact> contacts = new ArrayList<Contact>();
+		
+		String query = buildQuery(wClause);
+		
+		Statement stmt = con.createStatement();
+		System.out.println(query);
+		results = stmt.executeQuery(query);
+		while(results.next()){
+			Contact contact;
+			contact = buildContact(results);
+			contacts.add(contact);
+		}
+		stmt.close();
+		return contacts;
 	}
 
-	public Supplier buildPerson() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	private Contact buildContact(ResultSet results) throws SQLException {
+		Contact contact = new Contact();
+		contact.setID(results.getInt("personID"));
+		contact.setName(results.getString("name"));
+		contact.setPhoneNr(results.getString("phoneNumber"));
+		contact.setAdress(results.getString("address"));
+		contact.setEmail(results.getString("email"));
+		contact.setSupplier(new Supplier(results.getInt("supplierID"),null,null,null));
+		return contact;
 	}
 
-	public String buildQuery(String wClause) {
-		// TODO Auto-generated method stub
+	private String buildQuery(String wClause) {
+		String query = " SELECT personID, name, phoneNumber, address, email, supplierID FROM Person, Contact as c, SupplierContacts as s WHERE c.contactID = s.contactID";
+		if(wClause.length() > 0){
+			query = query + " AND" + wClause;
+		}
 		return null;
 	}
 
