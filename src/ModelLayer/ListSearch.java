@@ -9,6 +9,14 @@ public class ListSearch {
 	ListSearch(ArrayList<Ware> wares) {
 		this.wares = wares;
 	}
+	
+	public Ware byIndex(int index){
+		Ware ware = null;
+		if(index <= wares.size() && index > 0){
+			ware = wares.get(index - 1);
+		}
+		return ware;
+	}
 
 	/**
 	 * Search the Wares of this supplier by Name. Returns null if no match is
@@ -17,56 +25,76 @@ public class ListSearch {
 	public Ware byID(int ID) {
 		int indx = 0;
 		boolean running = true;
-		Ware Ware = null;
-		while (indx <= wares.size() && running) {
-			Ware = wares.get(indx);
-			if (Ware.getID() == ID) {
-				running = false;
+		Ware ware = null;
+		try {
+			while (indx <= wares.size() && running) {
+				ware = wares.get(indx);
+				if (ware.getID() == ID) {
+					running = false;
+				}
+				indx++;
 			}
-			indx++;
 		}
-		return Ware;
+		catch (IndexOutOfBoundsException e) {
+			ware = null;
+		}
+		return ware;
 	}
 
 	public Ware byStatus(String status) {
 		int indx = 0;
 		boolean running = true;
-		Ware Ware = null;
-		while (indx <= wares.size() && running) {
-			Ware = wares.get(indx);
-			if (Ware.getStatus().equals(status)) {
-				running = false;
+		Ware ware = null;
+		try {
+			while (indx <= wares.size() && running) {
+				ware = wares.get(indx);
+				if (ware.getStatus().equals(status)) {
+					running = false;
+				}
+				indx++;
 			}
-			indx++;
 		}
-		return Ware;
+		catch (IndexOutOfBoundsException e) {
+			ware = null;
+		}
+		return ware;
 	}
 
 	public Ware bySignature(String signature) {
 		int indx = 0;
 		boolean running = true;
-		Ware Ware = null;
-		while (indx <= wares.size() && running) {
-			Ware = wares.get(indx);
-			if (Ware.getSignature().equals(signature)) {
-				running = false;
+		Ware ware = null;
+		try {
+			while (indx <= wares.size() && running) {
+				ware = wares.get(indx);
+				if (ware.getSignature().equals(signature)) {
+					running = false;
+				}
+				indx++;
 			}
-			indx++;
 		}
-		return Ware;
+		catch (IndexOutOfBoundsException e) {
+			ware = null;
+		}
+		return ware;
 	}
 
 	public Ware bySerialNumber(String serialNumber) {
 		int indx = 0;
 		boolean running = true;
-		Ware Ware = null;
-		while (indx <= wares.size() && running) {
-			Ware = wares.get(indx);
-			if (Ware.getSerialNumber().equals(serialNumber)) {
-				running = false;
+		Ware ware = null;
+		try {
+			while (indx <= wares.size() && running) {
+				ware = wares.get(indx);
+				if (ware.getSerialNumber().equals(serialNumber)) {
+					running = false;
+				}
+				indx++;
 			}
-			indx++;
 		}
-		return Ware;
+		catch (IndexOutOfBoundsException e) {
+			ware = null;
+		}
+		return ware;
 	}
 }
