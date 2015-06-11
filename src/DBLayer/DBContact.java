@@ -39,29 +39,31 @@ public class DBContact {
 	}
 
 	public void insert(Contact contact) throws SQLException {
+		int id = 0;
 		String query = " INSERT INTO Person(name,phoneNumber,email,address,subtype)"
 				+ " VALUES('" 
 				+ contact.getName() + "','"
 				+ contact.getPhoneNr() + "','"
 				+ contact.getEmail() + "','"
-				+ contact.getAddress() + "','"
-				+ "Contact')";
+				+ contact.getAddress() + "',"
+				+ "'Contact')";
 		String getID = " SELECT personID FROM Person"
 				+ " WHERE"
 				+ " name = '" + contact.getName() + "'"
 				+ " AND phoneNumber = '" + contact.getPhoneNr() + "'"
-				+ " AND subtype = 'Contact";
+				+ " AND subtype = 'Contact'";
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
 		System.out.println(query);
 		stmt.executeUpdate(query);
+		System.out.println(getID);
 		ResultSet idRow = stmt.executeQuery(getID);
-		idRow.next();
+		while(idRow.next()) id = idRow.getInt(1);
 		stmt.executeUpdate(" INSERT INTO Contact(personID) VALUEs('"
-				+ idRow.getInt(1) + "'");
+				+ id + "')");
 		if(contact.getSupplier() != null){
-			idRow = stmt.executeQuery("SELECT contactID FROM Contacts WHERE personID = '" + idRow.getInt(1) + "'");
+			idRow = stmt.executeQuery(" SELECT contactID FROM Contact WHERE personID = '" + id + "'");
 			idRow.next();
 			stmt.executeUpdate(" INSERT INTO SupplierContacts(contactID,supplierID) VALUES('"
 					+ idRow.getInt(1) + "','" + contact.getSupplier().getID() + "')");
@@ -89,9 +91,9 @@ public class DBContact {
 	}
 
 	public void delete(Contact contact) throws SQLException {
-		String query = " DELETE FROM Person WHERE"
+		String query = " DELETE FROM Contact  WHERE"
 				+ " personID = " + contact.getID()
-				+ " DELETE FROM Contact WHERE"
+				+ " DELETE FROM Person WHERE"
 				+ " personID = " + contact.getID();
 		String getID = " SELECT contactID FROM Contact WHERE personID = " + contact.getID();
 
@@ -139,11 +141,11 @@ public class DBContact {
 	}
 
 	private String buildQuery(String wClause) {
-		String query = " SELECT personID, name, phoneNumber, address, email, supplierID FROM Person, Contact as c, SupplierContacts as s WHERE c.contactID = s.contactID";
+		String query = " SELECT Person.personID, name, phoneNumber, address, email, supplierID FROM Person, Contact as c, SupplierContacts as s WHERE c.contactID = s.contactID";
 		if(wClause.length() > 0){
 			query = query + " AND" + wClause;
 		}
-		return null;
+		return query;
 	}
 
 }
