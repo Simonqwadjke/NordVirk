@@ -1,7 +1,7 @@
 # Work delegation
 
 | File | Package |  Person responsible | status |
-| ---- | ------- | ------------------ | ------ |
+| ---- | ------- | ------------------- | ------ |
 | Person | Model | Simon | Done |
 | Contact | Model | Zohdi | Done |
 | Emplyee | Model | Anders | Done |
@@ -14,9 +14,9 @@
 | DBList | DB | Martin | Working |
 | DBperson | DB | Simon | Not completet |
 | DBsupplier | DB | Anders | Working |
-| Employee | Model | Martin | Doen |
+| Employee | Model | Martin | Done |
 | Contact | Model | Martin | Done |
 | DBEmployee | DB | Martin | Done |
-| DBContact | DB | Martin | Working |
+| DBContact | DB | Martin | Done |
 |  |  |  |  |
 |  |  |  |  |
