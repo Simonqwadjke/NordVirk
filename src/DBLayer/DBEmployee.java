@@ -39,6 +39,7 @@ public class DBEmployee{
 	}
 
 	public void insert(Employee employee) throws SQLException{
+		int id = 0;
 		String query = " INSERT INTO Person(name,phoneNumber,email,address,subtype)"
 				+ " VALUES('" 
 				+ employee.getName() + "','"
@@ -57,9 +58,9 @@ public class DBEmployee{
 		System.out.println(query);
 		stmt.executeUpdate(query);
 		ResultSet idRow = stmt.executeQuery(getID);
-		idRow.next();
+		while(idRow.next()) id = idRow.getInt(1);
 		query = " INSERT INTO Employee(personID,rights)"
-				+ " VALUES('" + idRow.getInt(1)
+				+ " VALUES('" + id
 				+ "','"	+ employee.getRights() + "')";
 		System.out.println(query);
 		stmt.executeUpdate(query);
@@ -68,10 +69,10 @@ public class DBEmployee{
 
 	public void update(Employee employee) throws SQLException{
 		String query = " UPDATE Person SET"
-				+ " name = '" + employee.getName() + "'"
-				+ " phoneNumber = '" + employee.getPhoneNr() + "'"
-				+ " email = '" + employee.getEmail() + "'"
-				+ " address = '" + employee.getAddress() + "'"
+				+ " name = '" + employee.getName() + "',"
+				+ " phoneNumber = '" + employee.getPhoneNr() + "',"
+				+ " email = '" + employee.getEmail() + "',"
+				+ " address = '" + employee.getAddress() + "',"
 				+ " subtype = 'Employee'"
 				+ " WHERE personID = " + employee.getID()
 				+ " UPDATE Employee SET"
@@ -96,7 +97,7 @@ public class DBEmployee{
 		stmt.close();
 	}
 
-	public ArrayList<Employee> search(String wClause) throws SQLException{
+	private ArrayList<Employee> search(String wClause) throws SQLException{
 		ResultSet results;
 		ArrayList<Employee> emps = new ArrayList<Employee>();
 		
@@ -116,7 +117,7 @@ public class DBEmployee{
 		return emps;
 	}
 
-	public Employee buildEmployee(ResultSet results) throws SQLException{
+	private Employee buildEmployee(ResultSet results) throws SQLException{
 		Employee emp = new Employee();
 		
 		emp.setID(results.getInt("personID"));
@@ -129,8 +130,8 @@ public class DBEmployee{
 		return emp;
 	}
 
-	public String buildQuery(String wClause) {
-		String query = " SELECT personID,name,phoneNumber,address,email,rights FROM Person,Employee";
+	private String buildQuery(String wClause) {
+		String query = " SELECT Person.personID,name,phoneNumber,address,email,rights FROM Person,Employee";
 		if(wClause.length() > 0){
 			query = query + " WHERE" + wClause;
 		}
