@@ -2,6 +2,7 @@ package DBLayer;
 
 import java.sql.*;
 import java.util.ArrayList;
+
 import ModelLayer.*;
 
 public class DBList {
@@ -13,17 +14,17 @@ public class DBList {
 	}
 	
 	public ArrayList<List> findByName(String name) throws SQLException{
-		String wClause = "name = '" + name + "'";
+		String wClause = " name = '" + name + "'";
 		return search(wClause);
 	}
 	
 	public ArrayList<List> findByCreator(Employee creator) throws SQLException{
-		String wClause = "creator = '" + creator.getID() + "'";
+		String wClause = " creator = '" + creator.getID() + "'";
 		return search(wClause);
 	}
 	
 	public ArrayList<List> findBySupplier(Supplier supplier) throws SQLException{
-		String wClause = "supplier = '" + supplier.getID() + "'";
+		String wClause = " supplier = '" + supplier.getID() + "'";
 		return search(wClause);
 	}
 	
@@ -33,55 +34,62 @@ public class DBList {
 	
 	public void insert(List list) throws SQLException{
 		DBWare DBware = new DBWare();
-		int listID = 0, i = 0;
-		String query = "INSERT INTO List(name,creator,supplierID,acquasitionType) "
-				+ "VALUES('" + list.getName() + "','"
+		ResultSet idRow;
+		int i = 1;
+		String query = " INSERT INTO List(name,creator,supplierID,acquasitionType)"
+				+ " VALUES('" + list.getName() + "','"
 				+ list.getCreator().getID() + "','"
 				+ list.getSupplier().getID() + "','"
 				+ list.getAcquasitionType() + "')";
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
-		stmt.executeQuery(query);
-		listID = stmt.executeQuery("SELECT listID FROM List WHERE name = " + list.getName()).getInt(1);
+		System.out.println(query);
+		stmt.executeUpdate(query);
+		idRow = stmt.executeQuery(" SELECT listID FROM List WHERE name = '" + list.getName() + "'");
+		while(idRow.next()) list.setID(idRow.getInt(1));
 		stmt.close();
-		while(list.getWare(i) != null){
-			DBware.insert(list.search.byID(i),listID);
+		while(list.search.byIndex(i) != null){
+			DBware.insert(list.search.byIndex(i),list);
 			i++;
 		}
 	}
 	
 	public void update(List list) throws SQLException{
 		DBWare DBware = new DBWare();
-		int i = 0;
-		String query = "UPDATE List SET "
-				+ "name = '" + list.getName() + "'"
-				+ "creator = '" + list.getCreator().getID() + "'"
-				+ "supplierID = '" + list.getSupplier().getID() + "'"
-				+ "acquasitionType = '" + list.getAcquasitionType() + "'"
-				+ "WHERE listID = '" + list.getID() + "'";
+		int i = 1;
+		String query = " UPDATE List SET"
+				+ " name = '" + list.getName() + "',"
+				+ " creator = '" + list.getCreator().getID() + "',"
+				+ " supplierID = '" + list.getSupplier().getID() + "',"
+				+ " acquasitionType = '" + list.getAcquasitionType() + "'"
+				+ " WHERE listID = '" + list.getID() + "'";
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
-		stmt.executeQuery(query);
+		System.out.println(query);
+		stmt.executeUpdate(query);
 		stmt.close();
-		while(list.search.byID(i) != null){
-			DBware.update(list.search.byID(i));
+		while(list.search.byIndex(i) != null){
+			DBware.update(list.search.byIndex(i));
+			i++;
 		}
 	}
 	
 	public void delete(List list) throws SQLException{
 		DBWare DBware = new DBWare();
-		int i = 0;
-		String query = "DELETE FROM List WHERE listID = " + list.getID();
+		int i = 1;
+		String query = " DELETE FROM List WHERE listID = " + list.getID();
 		
+		while(list.search.byIndex(i) != null){
+			DBware.delete(list.search.byIndex(i));
+			i++;
+		}
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
-		stmt.executeQuery(query);
+		System.out.println(query);
+		stmt.executeUpdate(query);
 		stmt.close();
-		while(list.search.byID(i) != null){
-			DBware.delete(list.search.byID(i));
-		}
 	}
 	
 	private ArrayList<List> search(String wClause) throws SQLException{
@@ -92,6 +100,7 @@ public class DBList {
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
+		System.out.println(query);
 		results = stmt.executeQuery(query);
 		while(results.next()){
 			List list;
@@ -128,9 +137,9 @@ public class DBList {
 	}
 
 	private String buildQuery(String wClause){
-		String query = "SELECT listID, creator, supplierID, acquasitionType FROM List";
+		String query = " SELECT listID, name, creator, supplierID, acquasitionType FROM List";
 		if(wClause.length() > 0){
-			query = query + " WHERE = " + wClause;
+			query = query + " WHERE" + wClause;
 		}
 		return query;
 	}

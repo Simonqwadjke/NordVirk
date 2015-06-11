@@ -13,7 +13,8 @@ public class List {
 	public ListSearch		search;
 
 	public List() {
-
+		wares = new ArrayList<Ware>();
+		search = new ListSearch(wares);
 	}
 
 	public List(int ID, String name, ArrayList<Ware> wares, Employee creator, Supplier supplier, String acquasitionType) {
@@ -23,14 +24,7 @@ public class List {
 		this.creator = creator;
 		this.supplier = supplier;
 		this.acquasitionType = acquasitionType;
-	}
-
-	public Ware getWare(int index) {
-		Ware ware = null;
-		if (index < wares.size()) {
-			ware = wares.get(index);
-		}
-		return ware;
+		search = new ListSearch(wares);
 	}
 
 	public int getID() {

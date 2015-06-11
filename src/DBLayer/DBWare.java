@@ -2,6 +2,7 @@ package DBLayer;
 
 import java.sql.*;
 import java.util.ArrayList;
+
 import ModelLayer.*;
 
 public class DBWare{
@@ -13,30 +14,30 @@ public class DBWare{
 	}
 	
 	public ArrayList<Ware> findByList(List list) throws SQLException{
-		String wClause = " listID = " + list.getID();
+		String wClause = " listID = '" + list.getID() + "'";
 		return search(wClause);
 	}
 	
 	public ArrayList<Ware> findBySerial(String serialNumber) throws SQLException{
-		String wClause = " serialNumber = " + serialNumber;
+		String wClause = " serialNumber = '" + serialNumber + "'";
 		return search(wClause);
 	}
 	
 	public ArrayList<Ware> findBySignature(String signature) throws SQLException{
-		String wClause = " signature = " + signature;
+		String wClause = " signature = '" + signature + "'";
 		return search(wClause);
 	}
 	
 	public ArrayList<Ware> findByStatus(String status) throws SQLException{
-		String wClause = " status = " + status;
+		String wClause = " status = '" + status + "'";
 		return search(wClause);
 	}
 	
-	public void insert(Ware ware, int listID) throws SQLException{
+	public void insert(Ware ware, List list) throws SQLException{
 		
 		String query = " INSERT INTO Ware(listID,name,status,signature,serialNUmber)"
 				+ " VALUES('" 
-				+ listID + "','"
+				+ list.getID() + "','"
 				+ ware.getName() + "','"
 				+ ware.getStatus() + "','"
 				+ ware.getSignature() + "','"
@@ -44,6 +45,7 @@ public class DBWare{
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
+		System.out.println(query);
 		stmt.executeUpdate(query);
 		stmt.close();
 	}
@@ -59,6 +61,7 @@ public class DBWare{
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
+		System.out.println(query);
 		stmt.executeUpdate(query);
 		stmt.close();
 	}
@@ -69,6 +72,7 @@ public class DBWare{
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
+		System.out.println(query);
 		stmt.executeUpdate(query);
 		stmt.close();
 	}
@@ -81,6 +85,7 @@ public class DBWare{
 		
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
+		System.out.println(query);
 		results = stmt.executeQuery(query);
 		while(results.next()){
 			Ware ware;
@@ -105,7 +110,7 @@ public class DBWare{
 	}
 
 	private String buildQuery(String wClause){
-		String query = "Select wareID, listID, name, status, signature, serialNumber FROM Ware";
+		String query = " Select wareID, listID, name, status, signature, serialNumber FROM Ware";
 		if(wClause.length() > 0){
 			query = query + " WHERE" + wClause;
 		}
