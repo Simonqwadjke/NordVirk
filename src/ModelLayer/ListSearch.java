@@ -12,8 +12,8 @@ public class ListSearch {
 	
 	public Ware byIndex(int index){
 		Ware ware = null;
-		if(index <= wares.size() && index > 0){
-			ware = wares.get(index - 1);
+		if(index < wares.size() && index >= 0){
+			ware = wares.get(index);
 		}
 		return ware;
 	}

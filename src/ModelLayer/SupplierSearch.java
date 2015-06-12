@@ -8,6 +8,14 @@ public class SupplierSearch {
 	SupplierSearch(ArrayList<Contact> contacts) {
 		this.contacts = contacts;
 	}
+	
+	public Contact byIndex(int index){
+		Contact contact = null;
+		if(index < contacts.size() || index >= 0){
+			contact = contacts.get(index);
+		}
+		return contact;
+	}
 
 	/**
 	 * Search the contacts of this supplier by ID. Returns null if no match is
