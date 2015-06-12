@@ -5,6 +5,7 @@ public class Contact extends Person {
 	private Supplier	supplier;
 
 	public Contact() {
+		super();
 		supplier = null;
 	}
 

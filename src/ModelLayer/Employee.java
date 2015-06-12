@@ -4,6 +4,7 @@ public class Employee extends Person {
 	private int	rights;
 
 	public Employee() {
+		super();
 		rights = 0;
 	}
 

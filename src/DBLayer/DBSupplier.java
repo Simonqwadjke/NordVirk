@@ -112,21 +112,24 @@ public class DBSupplier {
 	}
 	
 	private Supplier buildSupplier(ResultSet results) throws SQLException {
-		Supplier sup = new Supplier();
-		sup.setID(results.getInt("supplierID"));
-		sup.setName(results.getString("name"));
-		sup.setCVR(results.getInt("CVR"));
-		sup.setAddress(results.getString("address"));
-		sup.setPhoneNr(results.getString("phoneNumber"));
-		sup.addContact(new Contact(results.getInt("personID"), null, null, null ,null, sup));
+		Supplier supplier = new Supplier();
+		Contact contact = new Contact();
+		supplier.setID(results.getInt("supplierID"));
+		supplier.setName(results.getString("name"));
+		supplier.setCVR(results.getInt("CVR"));
+		supplier.setAddress(results.getString("address"));
+		supplier.setPhoneNr(results.getString("phoneNumber"));
+		contact.setID(results.getInt("personID"));
+		contact.setSupplier(supplier);
+		supplier.addContact(contact);
 		
-		return sup;
+		return supplier;
 	}
 	
 	private String buildQuery(String wClause) {
 		String query = " SELECT s.supplierID, name, CVR, address, c.personID FROM Supplier as s, Contact as c, SupplierContacts sc WHERE c.contactID = sc.contactID AND sc.supplierID = s.supplierID";
 		if(wClause.length() > 0){
-			query = query + " AND" + wClause;
+			query += " AND" + wClause;
 		}
 		return query;
 	}
