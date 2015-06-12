@@ -7,16 +7,16 @@ import java.sql.DriverManager;
 public class DBConnection {
 
 	//Local SQL server:
-	 private static final String driver = "jdbc:sqlserver://localhost:1433";
-	 private static final String databaseName = ";databaseName=Nordvirk";
-	 private static String userName = ";user=Nordvirk";
-	 private static String password = ";password=Nordvirk";
+//	 private static final String driver = "jdbc:sqlserver://localhost:1433";
+//	 private static final String databaseName = ";databaseName=Nordvirk";
+//	 private static String userName = ";user=Nordvirk";
+//	 private static String password = ";password=Nordvirk";
 	
 	//UCN's Kraka sever:
-//	private static final String	driver			= "jdbc:sqlserver://kraka.ucn.dk:1433";
-//	private static final String	databaseName	= ";databaseName=dmab0914_2Sem_3";
-//	private static String		userName		= ";user=dmab0914_2Sem_3";
-//	private static String		password		= ";password=IsAllowed";
+	private static final String	driver			= "jdbc:sqlserver://kraka.ucn.dk:1433";
+	private static final String	databaseName	= ";databaseName=dmab0914_2Sem_3";
+	private static String		userName		= ";user=dmab0914_2Sem_3";
+	private static String		password		= ";password=IsAllowed";
 
 	private DatabaseMetaData	dma;
 	private static Connection	con;
