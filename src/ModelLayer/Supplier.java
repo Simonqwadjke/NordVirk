@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Supplier {
 
 	private int					ID;
+	private int 				CVR;
 	private String				name;
 	private String				address;
 	private String				phoneNr;
@@ -21,8 +22,9 @@ public class Supplier {
 		search = new SupplierSearch(contacts);
 	}
 
-	public Supplier(int ID, String name, String address, String phoneNr) {
+	public Supplier(int ID, int CVR, String name, String address, String phoneNr) {
 		this.ID = ID;
+		this.CVR = CVR;
 		this.name = name;
 		this.address = address;
 		this.phoneNr = phoneNr;
@@ -34,6 +36,10 @@ public class Supplier {
 
 	public int getID() {
 		return this.ID;
+	}
+	
+	public int getCVR() {
+		return this.CVR;
 	}
 
 	public String getName() {
@@ -51,6 +57,10 @@ public class Supplier {
 	//////////Set methods\\\\\\\\\\
 	public void setID(int ID) {
 		this.ID = ID;
+	}
+	
+	public void setCVR(int CVR) {
+		this.CVR = CVR;
 	}
 
 	public void setName(String name) {
