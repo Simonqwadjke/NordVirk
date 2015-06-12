@@ -69,6 +69,7 @@ public class DBContact {
 					+ idRow.getInt(1) + "','" + contact.getSupplier().getID() + "')");
 		}
 		stmt.close();
+		System.out.println("success!");
 	}
 
 	public void update(Contact contact) throws SQLException {
@@ -88,6 +89,7 @@ public class DBContact {
 		System.out.println(query);
 		stmt.executeUpdate(query);
 		stmt.close();
+		System.out.println("success!");
 	}
 
 	public void delete(Contact contact) throws SQLException {
@@ -108,6 +110,7 @@ public class DBContact {
 		System.out.println(query);
 		stmt.executeUpdate(query);
 		stmt.close();
+		System.out.println("success!");
 
 	}
 
@@ -126,6 +129,8 @@ public class DBContact {
 			contacts.add(contact);
 		}
 		stmt.close();
+		System.out.println("success!");
+		
 		return contacts;
 	}
 

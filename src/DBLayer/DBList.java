@@ -49,6 +49,7 @@ public class DBList {
 		idRow = stmt.executeQuery(" SELECT listID FROM List WHERE name = '" + list.getName() + "'");
 		while(idRow.next()) list.setID(idRow.getInt(1));
 		stmt.close();
+		System.out.println("success!");
 		while(list.search.byIndex(i) != null){
 			DBware.insert(list.search.byIndex(i),list);
 			i++;
@@ -70,6 +71,7 @@ public class DBList {
 		System.out.println(query);
 		stmt.executeUpdate(query);
 		stmt.close();
+		System.out.println("success!");
 		while(list.search.byIndex(i) != null){
 			DBware.update(list.search.byIndex(i));
 			i++;
@@ -90,6 +92,7 @@ public class DBList {
 		System.out.println(query);
 		stmt.executeUpdate(query);
 		stmt.close();
+		System.out.println("success!");
 	}
 	
 	private ArrayList<List> search(String wClause) throws SQLException{
@@ -109,6 +112,7 @@ public class DBList {
 			lists.add(list);
 		}
 		stmt.close();
+		System.out.println("success!");
 		
 		return lists;
 	}

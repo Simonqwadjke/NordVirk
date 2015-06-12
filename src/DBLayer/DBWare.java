@@ -48,6 +48,7 @@ public class DBWare{
 		System.out.println(query);
 		stmt.executeUpdate(query);
 		stmt.close();
+		System.out.println("success!");
 	}
 	
 	public void update(Ware ware)throws SQLException{
@@ -64,6 +65,7 @@ public class DBWare{
 		System.out.println(query);
 		stmt.executeUpdate(query);
 		stmt.close();
+		System.out.println("success!");
 	}
 	
 	public void delete(Ware ware)throws SQLException{
@@ -75,6 +77,7 @@ public class DBWare{
 		System.out.println(query);
 		stmt.executeUpdate(query);
 		stmt.close();
+		System.out.println("success!");
 	}
 	
 	private ArrayList<Ware> search(String wClause) throws SQLException{
@@ -93,6 +96,7 @@ public class DBWare{
 			wares.add(ware);
 		}
 		stmt.close();
+		System.out.println("success!");
 		
 		return wares;
 	}

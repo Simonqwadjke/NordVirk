@@ -65,6 +65,7 @@ public class DBEmployee{
 		System.out.println(query);
 		stmt.executeUpdate(query);
 		stmt.close();
+		System.out.println("success!");
 	}
 
 	public void update(Employee employee) throws SQLException{
@@ -84,6 +85,7 @@ public class DBEmployee{
 		System.out.println(query);
 		stmt.executeUpdate(query);
 		stmt.close();
+		System.out.println("success!");
 	}
 
 	public void delete(Employee employee) throws SQLException{
@@ -95,6 +97,7 @@ public class DBEmployee{
 		System.out.println(query);
 		stmt.executeUpdate(query);
 		stmt.close();
+		System.out.println("success!");
 	}
 
 	private ArrayList<Employee> search(String wClause) throws SQLException{
@@ -113,6 +116,7 @@ public class DBEmployee{
 			emps.add(emp);
 		}
 		stmt.close();
+		System.out.println("success!");
 		
 		return emps;
 	}
