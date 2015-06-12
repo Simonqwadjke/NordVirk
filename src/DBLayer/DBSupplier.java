@@ -57,11 +57,37 @@ public class DBSupplier {
 	}
 	
 	public void update(Supplier supplier) throws SQLException {
+		String query = " UPDATE Supplier SEt"
+				+ " name = '" + supplier.getName() + "',"
+				+ " CVR = '" + supplier.getCVR() + "',"
+				+ " phoneNumber = '" + supplier.getPhoneNr() + "',"
+				+ " address = '" + supplier.getAddress() + "'"
+				+ " WHERE supplierID = " + supplier.getID();
 		
+		Statement stmt = con.createStatement();
+		stmt.setQueryTimeout(5);
+		System.out.println(query);
+		stmt.executeUpdate(query);
+		stmt.close();
+		System.out.println("success!");
 	}
 	
 	public void delete(Supplier supplier) throws SQLException {
+		DBContact DBcontact = new DBContact();
+		int i = 0;
+		String query = " DELETE FROM Supplier WHERE"
+				+ " supplierID = " + supplier.getID();
 		
+		Statement stmt = con.createStatement();
+		stmt.setQueryTimeout(5);
+		System.out.println(query);
+		stmt.executeUpdate(query);
+		stmt.close();
+		while(supplier.search.byIndex(i) != null){
+			DBcontact.delete(supplier.search.byIndex(i));
+			i++;
+		}
+		System.out.println("success!");
 	}
 
 	private ArrayList<Supplier> search(String wClause) throws SQLException {
