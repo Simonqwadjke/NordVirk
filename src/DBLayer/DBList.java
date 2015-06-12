@@ -35,7 +35,7 @@ public class DBList {
 	public void insert(List list) throws SQLException{
 		DBWare DBware = new DBWare();
 		ResultSet idRow;
-		int i = 1;
+		int i = 0;
 		String query = " INSERT INTO List(name,creator,supplierID,acquasitionType)"
 				+ " VALUES('" + list.getName() + "','"
 				+ list.getCreator().getID() + "','"
@@ -58,7 +58,7 @@ public class DBList {
 	
 	public void update(List list) throws SQLException{
 		DBWare DBware = new DBWare();
-		int i = 1;
+		int i = 0;
 		String query = " UPDATE List SET"
 				+ " name = '" + list.getName() + "',"
 				+ " creator = '" + list.getCreator().getID() + "',"
@@ -80,7 +80,7 @@ public class DBList {
 	
 	public void delete(List list) throws SQLException{
 		DBWare DBware = new DBWare();
-		int i = 1;
+		int i = 0;
 		String query = " DELETE FROM List WHERE listID = " + list.getID();
 		
 		while(list.search.byIndex(i) != null){
@@ -122,7 +122,7 @@ public class DBList {
 		
 		list.setID(results.getInt("listID"));
 		list.setName(results.getString("name"));
-		list.setSupplier(new Supplier(results.getInt("supplierID"), null, null, null));
+		list.setSupplier(new Supplier(results.getInt("supplierID"), 0, null, null, null));
 		list.setCreator(new Employee(results.getInt("creator"), null, null, null, null, 0));
 		list.setAcquasitionType(results.getString("acquasitionType"));
 		
