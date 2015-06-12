@@ -116,7 +116,7 @@ public class DBWare{
 	private String buildQuery(String wClause){
 		String query = " Select wareID, listID, name, status, signature, serialNumber FROM Ware";
 		if(wClause.length() > 0){
-			query = query + " WHERE" + wClause;
+			query += " WHERE" + wClause;
 		}
 		return query;
 	}

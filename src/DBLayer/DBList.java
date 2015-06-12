@@ -122,8 +122,12 @@ public class DBList {
 		
 		list.setID(results.getInt("listID"));
 		list.setName(results.getString("name"));
-		list.setSupplier(new Supplier(results.getInt("supplierID"), 0, null, null, null));
-		list.setCreator(new Employee(results.getInt("creator"), null, null, null, null, 0));
+		Supplier supplier = new Supplier();
+		Employee employee = new Employee();
+		supplier.setID(results.getInt("supplierID"));
+		employee.setID(results.getInt("creator"));
+		list.setSupplier(supplier);
+		list.setCreator(employee);
 		list.setAcquasitionType(results.getString("acquasitionType"));
 		
 		return list;
@@ -143,7 +147,7 @@ public class DBList {
 	private String buildQuery(String wClause){
 		String query = " SELECT listID, name, creator, supplierID, acquasitionType FROM List";
 		if(wClause.length() > 0){
-			query = query + " WHERE" + wClause;
+			query += " WHERE" + wClause;
 		}
 		return query;
 	}

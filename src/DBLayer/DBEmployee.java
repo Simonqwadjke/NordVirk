@@ -137,7 +137,7 @@ public class DBEmployee{
 	private String buildQuery(String wClause) {
 		String query = " SELECT Person.personID,name,phoneNumber,address,email,rights FROM Person,Employee";
 		if(wClause.length() > 0){
-			query = query + " WHERE" + wClause;
+			query += " WHERE" + wClause;
 		}
 		return query;
 	}

@@ -141,7 +141,9 @@ public class DBContact {
 		contact.setPhoneNr(results.getString("phoneNumber"));
 		contact.setAdress(results.getString("address"));
 		contact.setEmail(results.getString("email"));
-		contact.setSupplier(new Supplier(results.getInt("supplierID"), 0,null,null,null));
+		Supplier supplier = new Supplier();
+		supplier.setID(results.getInt("supplierID"));
+		contact.setSupplier(supplier);
 		return contact;
 	}
 
