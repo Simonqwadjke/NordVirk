@@ -53,6 +53,7 @@ public class DBSupplier {
 		System.out.println("success");
 		while(supplier.search.byIndex(i) != null){
 			DBcontact.insert(supplier.search.byIndex(i));
+			i++;
 		}
 	}
 	
@@ -77,16 +78,16 @@ public class DBSupplier {
 		int i = 0;
 		String query = " DELETE FROM Supplier WHERE"
 				+ " supplierID = " + supplier.getID();
-		
+
+		while(supplier.search.byIndex(i) != null){
+			DBcontact.delete(supplier.search.byIndex(i));
+			i++;
+		}
 		Statement stmt = con.createStatement();
 		stmt.setQueryTimeout(5);
 		System.out.println(query);
 		stmt.executeUpdate(query);
 		stmt.close();
-		while(supplier.search.byIndex(i) != null){
-			DBcontact.delete(supplier.search.byIndex(i));
-			i++;
-		}
 		System.out.println("success!");
 	}
 
@@ -127,7 +128,7 @@ public class DBSupplier {
 	}
 	
 	private String buildQuery(String wClause) {
-		String query = " SELECT s.supplierID, name, CVR, address, c.personID FROM Supplier as s, Contact as c, SupplierContacts sc WHERE c.contactID = sc.contactID AND sc.supplierID = s.supplierID";
+		String query = " SELECT s.supplierID, name, CVR, address, phoneNumber, c.personID FROM Supplier as s, Contact as c, SupplierContacts sc WHERE c.contactID = sc.contactID AND sc.supplierID = s.supplierID";
 		if(wClause.length() > 0){
 			query += " AND" + wClause;
 		}
