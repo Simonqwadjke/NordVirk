@@ -11,7 +11,7 @@ public class SupplierSearch {
 	
 	public Contact byIndex(int index){
 		Contact contact = null;
-		if(index < contacts.size() || index >= 0){
+		if(index < contacts.size() && index >= 0){
 			contact = contacts.get(index);
 		}
 		return contact;
