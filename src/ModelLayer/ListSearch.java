@@ -9,10 +9,10 @@ public class ListSearch {
 	ListSearch(ArrayList<Ware> wares) {
 		this.wares = wares;
 	}
-	
-	public Ware byIndex(int index){
+
+	public Ware byIndex(int index) {
 		Ware ware = null;
-		if(index < wares.size() && index >= 0){
+		if (index < wares.size() && index >= 0) {
 			ware = wares.get(index);
 		}
 		return ware;
@@ -64,17 +64,14 @@ public class ListSearch {
 		int indx = 0;
 		boolean running = true;
 		Ware ware = null;
-		try {
-			while (indx <= wares.size() && running) {
+		String search;
+		while (indx < wares.size() && running) {
+			search = wares.get(indx).getSignature();
+			if (ware.getSignature().equals(search)) {
 				ware = wares.get(indx);
-				if (ware.getSignature().equals(signature)) {
-					running = false;
-				}
-				indx++;
+				running = false;
 			}
-		}
-		catch (IndexOutOfBoundsException e) {
-			ware = null;
+			indx++;
 		}
 		return ware;
 	}
